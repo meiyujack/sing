@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content%}
+<form method="post">
+    {{ form.csrf_token}}
+    <div class="flex items-center mt-20 gap-7">
+        <span>{{ form.singer_id.label }}</span><span>{{ form.singer_id }}</span>
+        <span>{{ form.album_id.label }}</span><span>{{ form.album_id}}</span>
+    </div>
+    <div>
+        <table class="border-collapse border border-slate-400 m-16 text-lg text-center">
+            <thead>
+                <tr>
+                    <th class="border border-slate-700 p-1">歌曲名称</th>
+                    <th class="border border-slate-700">歌曲时长</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in tracks%}
+                <tr class="text-center">
+                    <td class="border border-slate-300">{{ row[0] }}</td>
+                    <td class="border border-slate-300">{{ row[1] }}</td>
+                    <td class="border border-slate-300"><button type="button"
+                            class="border rounded-sm bg-blue-300 text-black hover:bg-blue-800 hover:text-white duration-200"><a
+                                href="">编辑</a></button>
+                        <form action="" method="post" class="inline">
+                            <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                            <button type="button" class="border rounded-sm bg-blue-300 text-black hover:bg-blue-800 hover:text-white duration-200">
+                                <a href="">删除</a>
+                            </button>
+                        </td>
+                        </form>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+    </div>
+</form>
+<!-- <% for track in tracks %>
+            
+<%endfor%> -->
+
+<!-- <div class="mx-auto max-w-max">
+    <div class="columns-3 float-left">
+        <p>{{ form.singer_id.label }}</p>
+        <p>{{ form.singer_id }}</p>
+    </div>
+    <div class="columns-4 float-left">
+        <p>{{ form.album_id.label }}</p>
+        <p>{{ form.album_id}}</p>
+    </div>
+</div> -->
+
+{% endblock %}

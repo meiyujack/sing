@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "sing"
+version = "0.1.0"
+description = ""
+authors = ["meiyujack <meiyujack@msn.cn>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Flask = "^3.0.2"
+Flask-SQLAlchemy = "^3.1.1"
+Flask-Login = "^0.6.3"
+Flask-WTF = "^1.2.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
